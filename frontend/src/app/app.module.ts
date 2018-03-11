@@ -8,10 +8,13 @@ import { RouterModule } from '@angular/router';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import { HttpModule } from '@angular/http';
+import { BillingComponent } from './billing/billing.component';
+import {DataTableModule} from 'primeng/datatable';
 @NgModule({
   declarations: [
     AppComponent,
-    ProductslistComponent
+    ProductslistComponent,
+    BillingComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +22,8 @@ import { HttpModule } from '@angular/http';
     InputTextModule,
     HttpModule,
     FormsModule,
-    ButtonModule
+    ButtonModule,
+    DataTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

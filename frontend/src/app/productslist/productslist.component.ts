@@ -9,16 +9,28 @@ import * as io from "socket.io-client";
 export class ProductslistComponent implements OnInit {
   socket = io('http://localhost:8000');
   constructor(private http:Http) { }
-
+  rows=[];
   ngOnInit() {
     this.socket.on('address', function (data) {
-      
-    }.bind(this));
+    console.log(data);
+    this.load();
+  }.bind(this));
+  this.load();
   }
   load=function(){
-    alert(this.code);
+    this.http.get('http://localhost:8000/load').subscribe(data => {
+      // Read the result field from the JSON response.
+      this.rows=JSON.parse(data["_body"]);
+    });
+  }
+
+
+  insert=function(){
     const body={code:this.code,name:this.name1,price:this.price,gst:this.gst};
     this.http.post('http://localhost:8000/addproduct',body).subscribe();
   }
-
+  update=function(product){
+    const body={code:product.product_code,name:product.product_name,price:product.product_price,gst:product.product_gst};
+    this.http.post('http://localhost:8000/update',body).subscribe();
+  }
 }

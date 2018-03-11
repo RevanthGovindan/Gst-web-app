@@ -1,12 +1,12 @@
 {
-  "name": "networkbackend",
+  "name": "gstwebapp",
   "version": "1.0.0",
   "description": "Network backend for project",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Vijay Shaaruck",
+  "author": "revanth",
   "license": "ISC",
   "dependencies": {
     "hapi": "^16.1.1",

@@ -38,10 +38,9 @@ server.route({
 });
 server.route({
     method: 'POST',
-    path: '/productupdate',
+    path: '/update',
     handler: function(request, reply) {
         var payload = request.payload
-        console.log("hi");
         connection.query("UPDATE products  SET product_name='"+payload.name+"',product_price='"+payload.price+"',product_gst='"+payload.gst+"' WHERE product_code='"+payload.code+"'", function(error, results, fields) {
             if (error) throw error;
             emit("refresh")
