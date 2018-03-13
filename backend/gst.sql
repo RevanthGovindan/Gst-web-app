@@ -12,6 +12,6 @@ CREATE TABLE Products (
     product_code varchar(30),
     product_name varchar(30),
     product_price int,
-    product_code varchar(30),
+    product_gst int,
     PRIMARY KEY (product_code)
 );
