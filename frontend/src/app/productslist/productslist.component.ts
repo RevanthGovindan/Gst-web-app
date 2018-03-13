@@ -36,6 +36,6 @@ export class ProductslistComponent implements OnInit {
   delete=function(product)
   {
     const body={name:product.product_name};
-    this.http.post('http://localhost:8000/delete',body).subscribe();
+    this.http.post('http://localhost:8000/productdelete',body).subscribe();
   }
 }

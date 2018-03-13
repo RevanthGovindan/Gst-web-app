@@ -11,6 +11,7 @@
                 <th>Product gst</th>
                 <th>Enter Quantity</th>
                 <th>Product cost</th>
+                <th>Remove Added Items</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-i>
@@ -21,6 +22,7 @@
                 <td>{{i.product_gst}}</td>
                 <td><input type="number" pInputText [(ngModel)]="i.quantity" (keyup)="editquantity()"></td>
                 <td>{{(i.product_price*i.quantity)+(i.product_price*i.quantity*i.product_gst/100)|number}}</td>
+                <td><button type="button" pButton (click)="delete(i)" icon="fa-remove"></button></td>
             </tr>
         </ng-template>
     </p-table>    

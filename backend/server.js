@@ -63,17 +63,6 @@ server.route({
     }
 });
 server.route({
-    method: 'POST',
-    path: '/productsearch',
-    handler: function(request, reply) {
-        var payload = request.payload
-        connection.query("SELECT * FROM products where product_code ='"+ payload.code+"' or product_name='"+ payload.name+"'", function(error, results, fields) {
-            if (error) throw error;
-            return reply(JSON.stringify(results));
-        });
-    }
-});
-server.route({
     method: 'GET',
     path: '/load',
     handler: function(request, reply) {
