@@ -30,9 +30,13 @@ export class BillingComponent implements OnInit {
     this.filtered = [];
     var sr = event.query;
     for (let i = 0; i < this.rows.length; i++) {
-      let brand = this.rows[i].product_code;
-      if (brand.toLowerCase().indexOf(sr.toLowerCase()) == 0) {
-        this.filtered.push(brand);
+      let a = this.rows[i].product_code;
+      let b= this.rows[i].product_name;
+      if (a.toLowerCase().indexOf(sr.toLowerCase()) == 0) {
+        this.filtered.push(a);
+      }
+      else if(b.toLowerCase().indexOf(sr.toLowerCase()) == 0){
+        this.filtered.push(b);
       }
     }
   }
@@ -40,15 +44,20 @@ export class BillingComponent implements OnInit {
   addedproducts = function () {
     var name = this.val;
     for (let i = 0; i < this.newdata.length; i++) {
-      if (name == this.newdata[i].product_code) {
+      if (name == this.newdata[i].product_code||name==this.newdata[i].product_name) {
         return alert("product already added");
       }
     }
     for (let i = 0; i < this.rows.length; i++) {
       let brand = this.rows[i].product_code;
+      let code1 =this.rows[i].product_name;
       const body = { product_code: brand, product_name: this.rows[i].product_name, product_price: this.rows[i].product_price, product_gst: this.rows[i].product_gst };
       this.hundred = 100;
       if (name == brand) {
+        this.newdata.push(body);
+      }
+      else if(name==code1)
+      {
         this.newdata.push(body);
       }
     }
@@ -68,6 +77,7 @@ export class BillingComponent implements OnInit {
       for (let i = 0; i < this.newdata.length; i++) {
         if(obj.product_name==this.newdata[i].product_name)
         {
+          this.total -=( obj.product_price * obj.quantity* obj.product_gst / 100) + obj.product_price * obj.quantity;
           this.newdata.splice(i,1);
         }
       }

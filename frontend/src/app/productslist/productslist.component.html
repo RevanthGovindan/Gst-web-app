@@ -1,18 +1,36 @@
-<h2>Add New Product Here!!</h2><br>
-<input [(ngModel)]="code" type="text" pInputText placeholder="Product Code"/>
-<input [(ngModel)]="name1" type="text" pInputText placeholder="Product Name"/>
-<input [(ngModel)]="price" type="text" pInputText placeholder="Product Price"/>
-<input [(ngModel)]="gst" type="text" pInputText placeholder="GST Percent"/>
+<div class="heading"><h2>Add New Product Here!!</h2></div><br>
+<span class="ui-float-label" > 
+        <input [(ngModel)]="code" size="30" id="float-input" type="text" n  required pInputText/>
+        <label for="float-input">Product Code</label>
+</span>
+<br>
+<span class="ui-float-label" > 
+        <input [(ngModel)]="name1" size="30" id="float-input" type="text" n  required pInputText/>
+        <label for="float-input">Product Name</label>
+</span>
+<br>
+<span class="ui-float-label"> 
+        <input [(ngModel)]="price" size="30" id="float-input" type="text" n pInputText required/>
+        <label for="float-input">Product Price</label>
+</span>
+<br>
+<span class="ui-float-label"> 
+        <input [(ngModel)]="gst" size="30" id="float-input" type="text" n pInputText required/>
+        <label for="float-input">Gst Percent</label>
+</span>
+<br>
 <button (click)="insert()" pButton type="button" label="Add" ></button>
 <br>
-<a href="/bill" >Billing</a>
-<br><br><br><br><br>
+<div class="but"><button class="link" [routerLink]=" ['./bill']" >Billing Page >></button></div>
+
+<br>
 <p-dataTable [value]="rows" [editable]="true">
-    <p-column field="product_code" header="Product code" ></p-column>
-    <p-column field="product_name" header="Product Name" [editable]="true"></p-column>
-    <p-column field="product_price" header="Product price" [editable]="true"></p-column>
-    <p-column field="product_gst" header="Product gst" [editable]="true"></p-column>
-    <p-column header="Edit">
+    
+    <p-column field="product_code" header="Product code" [style]="{'text-align':'center'}"></p-column>
+    <p-column field="product_name" header="Product Name" [editable]="true" [style]="{'text-align':'center'}"></p-column>
+    <p-column field="product_price" header="Product price" [editable]="true" [style]="{'text-align':'center'}"></p-column>
+    <p-column field="product_gst" header="Product gst" [editable]="true" [style]="{'text-align':'center'}"></p-column>
+    <p-column header="Edit" [style]="{'text-align':'center'}">
         <ng-template let-product="rowData" let-i="rowIndex"  pTemplate="body">
             <button type="button" pButton (click)="update(product)" icon="fa-save"></button>
             <button type="button" pButton (click)="delete(product)" icon="fa-remove"></button>

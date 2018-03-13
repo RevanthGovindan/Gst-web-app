@@ -1,0 +1,20 @@
+.link
+{
+    padding: 10px 32px;
+    font-size: 28px;
+    background-color: #f44336;
+    color: aliceblue;
+}
+.link:hover{
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+.heading{
+    text-align: center;
+    background-color: rgb(13, 162, 231);
+    padding: 20px;
+border-radius: 20px;   
+}
+.but{
+    padding-left: 75%;
+}

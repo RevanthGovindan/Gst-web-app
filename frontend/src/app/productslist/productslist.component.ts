@@ -27,7 +27,13 @@ export class ProductslistComponent implements OnInit {
 
   insert=function(){
     const body={code:this.code,name:this.name1,price:this.price,gst:this.gst};
+    if(this.code!=""&&this.name1!=""&&this.price!=""&&this.gst!="")
+    {
     this.http.post('http://localhost:8000/addproduct',body).subscribe();
+    }
+    else{
+      alert("Fields Can't be empty");
+    }
   }
   update=function(product){
     const body={code:product.product_code,name:product.product_name,price:product.product_price,gst:product.product_gst};

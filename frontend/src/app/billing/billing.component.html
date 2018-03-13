@@ -1,5 +1,6 @@
+<div class="search"><h2>Search by product code or product name</h2></div>
 <div><p-autoComplete [(ngModel)]="val" [suggestions]="filtered" (completeMethod)="search($event)" placeholder="name or code"></p-autoComplete><button (click)="addedproducts()" pButton type="button" label="Add" ></button></div>
-<div><h4><a href="/" >products</a></h4></div>
+<div class="but"><button class="link" [routerLink]=" ['/']" > << Products Page</button></div>
 <div>
 
     <p-table [value]="newdata">
@@ -27,6 +28,6 @@
         </ng-template>
     </p-table>    
 </div>
-<div>
-    <h3>Total:{{total}}</h3>
+<div class="total">
+    <h3>Gross Total added products : {{total}}</h3>
 </div>
