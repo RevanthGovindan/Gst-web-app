@@ -26,7 +26,6 @@ export class BillingComponent implements OnInit {
       this.rows = JSON.parse(data["_body"]);
     });
   }
-
   search = function (event) {
     this.filtered = [];
     var sr = event.query;
@@ -37,7 +36,6 @@ export class BillingComponent implements OnInit {
       }
     }
   }
-  total = 0;
   
   addedproducts = function () {
     var name = this.val;
@@ -50,17 +48,17 @@ export class BillingComponent implements OnInit {
        }
     }
   }
-  editquantity=function(obj){
-    var productprice;
-    var gst;
-    for (let i = 0; i < this.newdata.length; i++) {
-      if(obj.product_name==this.newdata[i].product_name)
+  total=0;
+  editquantity=function(){
+    this.total=0;
+    for(let i of this.newdata)
+    {
+      if(i.quantity)
       {
-        productprice=this.newdata[i].product_price;
-        gst=this.newdata[i].product_gst;
-        this.total=this.total+(productprice*obj.quantity)+(productprice*obj.quantity*gst/100);
+      this.total+=i.product_price*Number(i.quantity)*i.product_gst/100+i.product_price*Number(i.quantity);
       }
     }
+    
     
   }
 }
