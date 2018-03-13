@@ -1,1 +1,30 @@
-<p-autoComplete [(ngModel)]="val" [suggestions]="filtered" (completeMethod)="search($event)"></p-autoComplete><button (click)="addedproducts()" pButton type="button" label="Add" ></button>
+<div><p-autoComplete [(ngModel)]="val" [suggestions]="filtered" (completeMethod)="search($event)" placeholder="name or code"></p-autoComplete><button (click)="addedproducts()" pButton type="button" label="Add" ></button></div>
+<div><h4><a href="/" >products</a></h4></div>
+<div>
+
+    <p-table [value]="newdata">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Product code</th>
+                <th>Product name</th>
+                <th>Product price</th>
+                <th>Product gst</th>
+                <th>Enter Quantity</th>
+                <th>Product cost</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-i>
+            <tr>
+                <td>{{i.product_code}}</td>
+                <td>{{i.product_name}}</td>
+                <td>{{i.product_price}}</td>
+                <td>{{i.product_gst}}</td>
+                <td><input type="number" pInputText [(ngModel)]="i.quantity" (keyup)="editquantity(i)"></td>
+                <td>{{(i.product_price*i.quantity)+(i.product_price*i.quantity*i.product_gst/100)}}</td>
+            </tr>
+        </ng-template>
+    </p-table>    
+</div>
+<div>
+    <h3>Total:{{total}}</h3>
+</div>

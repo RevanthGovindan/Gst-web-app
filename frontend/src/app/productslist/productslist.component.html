@@ -4,7 +4,9 @@
 <input [(ngModel)]="price" type="text" pInputText placeholder="Product Price"/>
 <input [(ngModel)]="gst" type="text" pInputText placeholder="GST Percent"/>
 <button (click)="insert()" pButton type="button" label="Add" ></button>
-<br><br><br><br><br><br>
+<br>
+<a href="/bill" >Billing</a>
+<br><br><br><br><br>
 <p-dataTable [value]="rows" [editable]="true">
     <p-column field="product_code" header="Product code" ></p-column>
     <p-column field="product_name" header="Product Name" [editable]="true"></p-column>
@@ -12,9 +14,10 @@
     <p-column field="product_gst" header="Product gst" [editable]="true"></p-column>
     <p-column header="Edit">
         <ng-template let-product="rowData" let-i="rowIndex"  pTemplate="body">
-            <button type="button" pButton (click)="update(product)" icon="fa-edit"></button>
+            <button type="button" pButton (click)="update(product)" icon="fa-save"></button>
+            <button type="button" pButton (click)="delete(product)" icon="fa-remove"></button>
         </ng-template>
     </p-column>
 </p-dataTable>
 <br><br><br>
-<a href="/bill" >Billing</a>
+

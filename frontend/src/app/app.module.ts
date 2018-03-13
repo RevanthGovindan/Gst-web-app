@@ -11,6 +11,7 @@ import { HttpModule } from '@angular/http';
 import { BillingComponent } from './billing/billing.component';
 import {DataTableModule} from 'primeng/datatable';
 import {AutoCompleteModule} from 'primeng/autocomplete';
+import {TableModule} from 'primeng/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
     FormsModule,
     ButtonModule,
     DataTableModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
